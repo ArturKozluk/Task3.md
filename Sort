@@ -1,0 +1,68 @@
+//bubleSort
+def bubble_sort(arr):
+    n = len(arr)
+    
+    # Вкажник для визначення кількості ітерацій
+    for i in range(n):
+        # Змінна, яка вказує, чи здійснились які-небудь обміни на поточній ітерації
+        swapped = False
+        
+        # Проходимося по невідсортованій частині масиву
+        for j in range(0, n - i - 1):
+            # Порівнюємо пару сусідніх елементів
+            if arr[j] > arr[j + 1]:
+                # Обмін значень, якщо поточний елемент більший за наступний
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        
+        # Якщо на даній ітерації не було обмінів, то масив вже відсортований
+        if not swapped:
+            break
+
+# Приклад використання сортування бульбашкою
+my_list = [64, 34, 25, 12, 22, 11, 90]
+bubble_sort(my_list)
+print("Відсортований масив:", my_list)
+//
+//SelectSort
+def selection_sort(arr):
+    n = len(arr)
+
+    for i in range(n):
+        # Знаходимо індекс мінімального елемента в невідсортованій частині масиву
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[j] < arr[min_index]:
+                min_index = j
+
+        # Обмін значень: найменший елемент вставляється на поточну позицію
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+
+# Приклад використання сортування вибором
+my_list = [64, 25, 12, 22, 11]
+selection_sort(my_list)
+print("Відсортований масив:", my_list)
+//
+//InsertionSort
+def insertion_sort(arr):
+    n = len(arr)
+
+    for i in range(1, n):
+        # Зберігаємо поточний елемент
+        current_element = arr[i]
+        j = i - 1
+
+        # Порівнюємо поточний елемент з попередніми елементами відсортованої частини
+        while j >= 0 and current_element < arr[j]:
+            # Переміщуємо більший елемент праворуч
+            arr[j + 1] = arr[j]
+            j -= 1
+
+        # Вставляємо поточний елемент на відповідне місце
+        arr[j + 1] = current_element
+
+# Приклад використання сортування вставками
+my_list = [12, 11, 13, 5, 6]
+insertion_sort(my_list)
+print("Відсортований масив:", my_list)
+//
